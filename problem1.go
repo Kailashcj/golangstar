@@ -13,7 +13,10 @@ type storer struct {
 }
 
 func main() {
-	arr := "aaaabbbcccaaaakkppppppppppqqqqt"
+	//arr := "aaaabbbcccaaaakkppppppppppqqqqt"
+	//if i append the given string with a 0 or ? at the end, I don't have to handle the
+	//edge case.
+	arr := "aaaabbbcccaaaakkppppppppppqqqqt0"
   
   //***previously i defined this slice of slice. this is also iteresting as to how you define that.
 	//result := [][]string{}  //define an array of arrray. notice the single {}
@@ -36,14 +39,15 @@ func main() {
 		}
 		j++
 	}
-  
+  //*** THIS WAS THE EDGE CASE I WROTE INITIALLY BUT AFTER NISHANT TOLD THAT WE CAN PAD THE GIVEN STRING
+	// WITH A ? OR 0, I DON'T NEED BELOW TO HANDLE EDGE CASE
   //*** nice edge case handling when you have last element left in the string. 
   //when j becomes equal or greater than the string length, what to do?
   //print ith char and use regular j-1 for the count of chars***
-	if j >= len(arr) { 
-		fmt.Println(string(arr[i]), j-i)
-		//result = append(result, []string{string(arr[i]), strconv.Itoa(j - i)})
-		result = append(result, storer{string(arr[i]), j - i})
-	}
+// 	if j >= len(arr) { 
+// 		fmt.Println(string(arr[i]), j-i)
+// 		//result = append(result, []string{string(arr[i]), strconv.Itoa(j - i)})
+// 		result = append(result, storer{string(arr[i]), j - i})
+// 	}
 	fmt.Println(result) //just printing result
 }
